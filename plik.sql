@@ -26,6 +26,7 @@ select count(*) as ilosc_ojcow, YEAR(data_urodzenia) as lata From studenci WHERE
 Select TOP 1 * from studenci WHERE plec='m' AND liczba_dzieci > 0 ORDER BY data_urodzenia DESC;
 Select * from studenci WHERE data_urodzenia = (Select max(data_urodzenia) from studenci WHERE plec='m' AND liczba_dzieci > 0);
 Select * from studenci where miasto in (Select miasto from studenci where nazwisko = 'chwiejski' OR nazwisko = 'wszelka');
+SELECT * FROM studenci as s WHERE (year(s.data_urodzenia) = 1982) OR (MONTH(data_urodzenia) = MONTH(dateadd(MONTH,1,GETDATE()))) OR (MONTH(data_urodzenia) = MONTH(dateadd(MONTH,-1,GETDATE())))
 
 # 1 zajęcia - 26.11.2022
  
