@@ -28,6 +28,7 @@ Select * from studenci WHERE data_urodzenia = (Select max(data_urodzenia) from s
 Select * from studenci where miasto in (Select miasto from studenci where nazwisko = 'chwiejski' OR nazwisko = 'wszelka');
 SELECT * FROM studenci as s WHERE (year(s.data_urodzenia) = 1982) OR (MONTH(data_urodzenia) = MONTH(dateadd(MONTH,1,GETDATE()))) OR (MONTH(data_urodzenia) = MONTH(dateadd(MONTH,-1,GETDATE())))
 SELECT * FROM studenci as s WHERE s.plec = 'k' AND liczba_dzieci >0 OR YEAR(data_urodzenia) >= YEAR(dateadd(YEAR,18,GETDATE())) ORDER BY imie DESC
+select count(*) as ile_osob, miasto FROM studenci WHERE liczba_dzieci= 0  group by miasto  having count(*) = 1
 
 # 1 zajęcia - 26.11.2022
  
